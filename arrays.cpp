@@ -4,18 +4,23 @@ using namespace std;
 /** 
  * Arrays
  * 
- * 
- * next time: 
- * passing an array as a parameter to a function (lab 2)
- * array<> in the STL (standard template library)
- * vector<> in the STL
+ * plan:
+ * files
+ * string
+ * vector
  */
 
 void printArray(int arr[], int size) {
     for (int i=0; i < size; i++) {
            cout << "i: " << i << " " << arr[i] << endl;
     }
+    cout << "In printArray: size of arr is: " << sizeof arr << " bytes" << endl;
 }
+void incrementArray(int arr[], int size) {
+    for (int i=0; i < size; i++) {
+           arr[i]++; // increment each element by 1
+    }
+}   
 int main() {
     const int SIZE=10;
 
@@ -25,12 +30,13 @@ int main() {
   // if you initialize some elts, any uninitialized elements are set to 0
     int arr[SIZE]{100}; // this is LEGAL
     cout << "Here are the values in my array arr: " << endl;
-    for (int i=0; i < SIZE; i++) {
-       cout << "i: " << i << " " << arr[i] << endl;
-    }
+    printArray(arr, SIZE);
+    incrementArray(arr, SIZE);
+    cout << "After incrementing each element by 1: " << endl;
     // enhanced for loop (also called the for-each loop)
     for (int val: arr) {
         cout << "val: " << val << endl;
     }
+    cout << "In main: size of arr is: " << sizeof(arr) << " bytes" << endl;
     return 0;
 }
